@@ -25,7 +25,7 @@ class Boid  {                   // Object
     }
     
     
-    AlignCohesionSeparation(boids, mode)    {     // Align with other boids, stay grouped and avoid colliding
+    AlignCohesionSeparation(boids, mode)    {       // Align with other boids, stay grouped and avoid colliding
         let steering = createVector();
         let total = 0;
 
@@ -55,7 +55,7 @@ class Boid  {                   // Object
 
             if(mode == "align" || mode == "separation") {
                 steering.setMag(this.startingVelocity);     // Set a speed, otherwise it will eventually fall to 0
-                steering.sub(this.velocity);    // This gives a vector which will "push" the boid
+                steering.sub(this.velocity);                // This gives a vector which will "push" the boid
             }
 
             else if(mode == "cohesion")                              
