@@ -2,13 +2,14 @@ class Boid  {                   // Object
     constructor()   {           // Constructor is a function which gives an object initial values
         this.position = createVector(random(width), random(height));    // Random vector with the boid's initial coordinates
         this.velocity = p5.Vector.random2D();                           // Random velocity direction
-        this.startingVelocity = random(2, 5);                           // Random velocity magnitude
+        this.mass = random(1, 5);
+        this.startingVelocity = random(1, 5) / this.mass;                           // Random velocity magnitude
         this.velocity.setMag(this.startingVelocity);                    
-        this.acceleration = createVector(); 
+        this.acceleration = createVector();
 
-        this.maxForce = 0.5;    // So that they don't go infinitely fast
-        this.maxVelocity = 5;   // So that they don't go infinitely fast
-        this.perception = 50;   // Radius of what they can see 
+        this.maxForce = 1 / this.mass;                // So that they don't go infinitely fast
+        this.maxVelocity = 5;               // So that they don't go infinitely fast
+        this.perception = 10 * this.mass;   // Radius of what they can see 
     }
 
 
@@ -89,7 +90,7 @@ class Boid  {                   // Object
 
 
     Show()  {                                       
-        strokeWeight(8);                            // How thick (big) is the boid
+        strokeWeight(this.mass * 3);                // How thick (big) is the boid
         stroke(255);                                // Greyscale value
         point(this.position.x, this.position.y);    // Draw boid
     }
