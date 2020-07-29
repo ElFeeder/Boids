@@ -1,7 +1,7 @@
-const boids = []
+const boids = [];
 
 function setup()    {
-    createCanvas(1200, 580);
+    createCanvas(1200, 900);
 
     for(let i = 0; i < 200; i++)
         boids.push(new Boid());     // Create a new boid
